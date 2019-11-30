@@ -53,16 +53,16 @@
   </head>
   <body>
     <div class="container">
-      <div class="row mb-5">
+      <div class="row mb-5 mt-5">
         <div class="col-3"></div>
         <div class="card col-6 text-center overview-body">
           <div class="card-body">
-            <i class="fas fa-check-circle text-muted fa-2x mr-1 ml-4"></i>
-            <p class="overview-p mr-5">1</p>
-            <i class="fas fa-exclamation-triangle text-muted fa-2x mr-1"></i>
-            <p class="overview-p mr-5">10</p>
-            <i class="fas fa-times-circle text-muted fa-2x mr-1"></i>
-            <p class="overview-p mr-5">0</p>
+            <i class="fas fa-check-circle fa-2x mr-1 ml-4 text-success"></i>
+            <p id="safe-counter" class="overview-p mr-5">0</p>
+            <i class="fas fa-times-circle fa-2x mr-1 text-danger"></i>
+            <p id="critical-counter" class="overview-p mr-5">0</p>
+            <i class="fas fa-exclamation-triangle fa-2x mr-1 text-warning"></i>
+            <p id="warning-counter" class="overview-p mr-5">0</p>
           </div>
         </div>
         <div class="col-3"></div>

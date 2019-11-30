@@ -359,6 +359,40 @@ function checklist_toggle() {
   }
 }
 
+function get_total() {
+  let safe_counter = 0;
+  let critical_counter = 0;
+  let warning_counter = 0;
+
+  for (part in checklist) {
+    for (check in checklist[part]) {
+      if (checklist[part][check].hasOwnProperty("point")) {
+        if (checklist[part][check].point === true) {
+          security_grade = checklist[part][check].security_grade;
+          switch (security_grade) {
+            case "critical":
+              critical_counter += 1;
+              break;
+            case "warning":
+              warning_counter += 1;
+              break;
+            case "not scored":
+              break;
+            default:
+              safe_counter += 1;
+          }
+        }
+      } else {
+        safe_counter += 1;
+      }
+    }
+  }
+
+  document.getElementById("safe-counter").innerText = safe_counter;
+  document.getElementById("critical-counter").innerText = critical_counter;
+  document.getElementById("warning-counter").innerText = warning_counter;
+}
+
 function init() {
   const checklist_keys = Object.keys(checklist);
   //console.log(checklist_keys);
@@ -398,6 +432,8 @@ function init() {
       }
     }
   }
+
+  get_total();
 }
 
 document.addEventListener("DOMContentLoaded", init, false);
