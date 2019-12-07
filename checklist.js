@@ -280,6 +280,7 @@ user_checklist = user_checklist
   .replace(/id/gi, "id")
   .replace(/point/gi, "point");
 user_checklist = JSON.parse(user_checklist);
+user_checklist["Iam"] = user_checklist["Iam"][0];
 
 function make_card(id, type, description, security_grade) {
   let card_div = document.createElement("div");
